@@ -7,7 +7,6 @@ def lottery(limit, guess, prize):
     for i in range(len(guess)):
         numbers.append(random.randrange(1, limit, 1))
     
-    
     difference = 0
     
     for i in range(len(numbers)):
@@ -16,7 +15,7 @@ def lottery(limit, guess, prize):
     
     if difference > 0:
         for i in range(1, difference + 1):
-            prize /= i + 1
+            prize /= 2
     
     return (guess, len(guess) - difference, prize)
 
