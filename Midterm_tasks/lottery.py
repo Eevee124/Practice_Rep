@@ -13,9 +13,7 @@ def lottery(limit, guess, prize):
         if not numbers[i] in guess:
             difference += 1
     
-    if difference > 0:
-        for i in range(1, difference + 1):
-            prize /= 2
+    prize /= 2**difference
     
     return (guess, len(guess) - difference, prize)
 
