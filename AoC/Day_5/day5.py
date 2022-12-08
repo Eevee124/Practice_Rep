@@ -39,9 +39,9 @@ def task_one(filename):
 
         for i in range(int(instruction[0])):
             moved = input[from_].pop()
-            #print(moved)
+            print(moved)
             input[to_].append(moved)
-            #print(test)
+            print(test)
     res = ''
     for line in input:
        res += line[-1]
@@ -50,10 +50,41 @@ def task_one(filename):
 def task_two(filename):
     with open(filename) as f:
         file = f.readlines()
-    pass
+        instructions = [line.strip() for line in file]
+    
+    instr = []
+    
+    for line in instructions:
+        x = line.replace('move', '')
+        x = x.replace('from', '')
+        x = x.replace('to', '')
+        instr.append(x.split())
+
+    #move 1 from 2 to 1
+    print(instr)
+
+    for instruction in instr:
+        instruction[0] = int(instruction[0]) * -1
+        from_ = int(instruction[1]) - 1
+        to_ = int(instruction[2]) - 1
+
+        print(from_, to_, instruction[0])
+
+        
+        moved = input[from_][instruction[0]:]
+        print(moved)
+        del input[from_][instruction[0]:]
+        input[to_].extend(moved)
+        moved = []
+        #print(test)
+
+    res = ''
+    for line in input:
+       res += line[-1]
+    return res
 
 #print(task_one('test.txt'))
-print(task_one('input.txt'))
+#print(task_one('input.txt'))
 
 #print(task_two('test.txt'))
-#print(task_two('input.txt'))
+print(task_two('input.txt'))
