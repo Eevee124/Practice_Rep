@@ -1,7 +1,17 @@
 def task_one(filename):
     with open(filename) as f:
         file = f.readlines()
-    pass
+    task = [line.strip() for line in file]
+
+    seq = ''
+    res = 0
+
+    for i in range(len(task) - 3):
+        for num in range(i, i + 4):
+            seq += task[num]
+        if not i in seq:
+            res = task[]
+
 
 def task_two(filename):
     with open(filename) as f:
