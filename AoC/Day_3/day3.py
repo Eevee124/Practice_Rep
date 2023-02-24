@@ -69,7 +69,7 @@ def task_two(filename):
         for letter in line:
             if letter in second[i] and letter in third[i] and not inside:
                 shared.append(letter)
-                inside = True
+                inside = True§
 
     priority = 0
     temp = 0
